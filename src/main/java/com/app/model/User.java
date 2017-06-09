@@ -1,4 +1,4 @@
-package com.tavant.app.model;
+package com.app.model;
 
 import java.io.Serializable;
 import java.util.Date;

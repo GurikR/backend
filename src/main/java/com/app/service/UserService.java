@@ -1,4 +1,4 @@
-package com.tavant.app.service;
+package com.app.service;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -9,7 +9,7 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
-import com.tavant.app.model.User;
+import com.app.model.User;
 
 
 @Path("/first")

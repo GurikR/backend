@@ -1,13 +1,20 @@
 package com.app.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="User")
+@XmlRootElement
 public class User implements Serializable{
-
+	
 	private static final long serialVersionUID = 1L;
 
-	private String userId;
+	@Id
+	private String id;
 	
 	private String name;
 	
@@ -15,16 +22,12 @@ public class User implements Serializable{
 	
 	private String contactNo;
 	
-	private Date createDt;
-	
-	private Date lastModifiedDt;
-
-	public String getUserId() {
-		return userId;
+	public String getId() {
+		return id;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -51,21 +54,4 @@ public class User implements Serializable{
 		this.contactNo = contactNo;
 	}
 
-	public Date getCreateDt() {
-		return createDt;
-	}
-
-	public void setCreateDt(Date createDt) {
-		this.createDt = createDt;
-	}
-
-	public Date getLastModifiedDt() {
-		return lastModifiedDt;
-	}
-
-	public void setLastModifiedDt(Date lastModifiedDt) {
-		this.lastModifiedDt = lastModifiedDt;
-	}
-	
-	
 }

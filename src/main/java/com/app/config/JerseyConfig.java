@@ -13,7 +13,7 @@ public class JerseyConfig extends ResourceConfig {
 
 	public JerseyConfig(){
 		register(RequestContextFilter.class);
-		 packages("com.tavant.app.service")
+		 packages("com.app.service")
 	       .register(JacksonFeature.class)
 	       .register(EncodingFilter.class)
           .register(GZipEncoder.class);

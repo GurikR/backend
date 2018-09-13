@@ -1,1 +1,1 @@
-call java -Xdebug -Xrunjdwp:transport=dt_socket,address=8585,server=y,suspend=n -jar target/dependency/jetty-runner.jar  --port 9090 target/*.war
+call java -jar target/dependency/jetty-runner.jar  --port 9090 target/*.war

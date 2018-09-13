@@ -17,8 +17,7 @@ public class WebServicesInitializer implements WebApplicationInitializer {
 	@Override
 	public void onStartup(ServletContext container) throws ServletException {
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-
-		rootContext.register(MongoConfig.class);
+ 
 		rootContext.refresh();
         container.addListener(new ContextLoaderListener(rootContext));
         container.addListener(new RequestContextListener());

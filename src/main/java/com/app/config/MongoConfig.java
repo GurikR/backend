@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import com.app.utility.PropertyUtil;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
@@ -21,11 +20,11 @@ import com.mongodb.MongoClientURI;
 @EnableMongoRepositories(basePackages = { "com.app.data.repository" })
 public class MongoConfig {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(MongoConfig.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MongoConfig.class);
 	
 	@Bean
 	public MongoDbFactory getMongoFactory() throws UnknownHostException{
-		MongoClientURI mongoClientURI = new MongoClientURI(PropertyUtil.getProperty("MONGO_URL"));
+		MongoClientURI mongoClientURI = new MongoClientURI("mongodb://localhost:27017/spring-mongo");
 		MongoClient mongoClient = new MongoClient(mongoClientURI);
 		
 		LOGGER.info("------------mongo initialized---------------");

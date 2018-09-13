@@ -1,5 +1,6 @@
 package com.app.service;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -16,7 +17,6 @@ import com.app.model.User;
 
 
 @Path("/user")
-@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
 @Component
 public class UserService {
 
@@ -33,6 +33,7 @@ public class UserService {
 	
 	@GET
 	@Path("/{name}")
+	@Produces(MediaType.APPLICATION_JSON)
 	public User getUserByName(@PathParam("name") String name){
 		User user = userRepository.findUserByName(name);
 		return user;
@@ -40,8 +41,9 @@ public class UserService {
 	
 	@Path("/save")
 	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response save(User user){
-		userRepository.save(user);
-		return Response.ok().build();
+		System.out.println(user.getName());
+		return Response.ok(user,MediaType.APPLICATION_JSON).build();
 	}
 }
